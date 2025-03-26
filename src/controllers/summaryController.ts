@@ -1,0 +1,9 @@
+import { Request, Response } from "express";
+import * as summaryService from "../services/summaryService";
+
+export async function getSummary(req: Request, res: Response) {
+  const { document } = req.params;
+
+  const result = await summaryService.getSummaryByDocument(document);
+  return res.send(result);
+}
