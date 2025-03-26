@@ -1,6 +1,5 @@
 import * as phonesRepository from "../repositories/phonesRepository";
 import { Phone } from "../protocols/phone";
-import { Client } from "../protocols/client";
 
 type PhoneInput = Omit<Phone, "id"> & { name: string; document: string };
 

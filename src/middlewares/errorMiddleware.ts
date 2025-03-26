@@ -1,24 +1,16 @@
 import { Request, Response, NextFunction } from "express";
 
-export function handleAppError(
-  error: any,
+export function errorHandler(
+  err: any,
   req: Request,
   res: Response,
   next: NextFunction
 ) {
-  console.error("❌ Erro inesperado:", error);
+  console.error("Erro no middleware:", err);
 
-  if (error.type === "not_found") {
-    return res.status(404).send(error.message);
+  if (err.type === "conflict") {
+    return res.status(409).send(err.message);
   }
 
-  if (error.type === "conflict") {
-    return res.status(409).send(error.message);
-  }
-
-  if (error.type === "unprocessable_entity") {
-    return res.status(422).send(error.message);
-  }
-
-  return res.status(500).send("Internal Server Error");
+  return res.status(500).send("Erro interno do servidor");
 }
