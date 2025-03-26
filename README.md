@@ -1,4 +1,4 @@
-LINK DEPLOY: https://recarga.onrender.com
+LINK DEPLOY: https://recharge-r2k9.onrender.com
 
 🚀 Funcionalidades
 Cadastro automático de clientes pelo CPF
