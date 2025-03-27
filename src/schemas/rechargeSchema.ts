@@ -1,6 +1,17 @@
 import Joi from "joi";
 
 export const rechargeSchema = Joi.object({
-  phoneId: Joi.number().integer().required(),
-  value: Joi.number().min(10).max(1000).required()
+  phoneNumber: Joi.string().required(),
+  amount: Joi.number().positive().required(),
 });
+
+export type RechargeData = {
+  phoneNumber: string;
+  amount: number;
+};
+
+function validateRechargeData(req: { body: any }) {
+  const { error, value } = rechargeSchema.validate(req.body);
+  const data: RechargeData = value;
+  return { error, data };
+}

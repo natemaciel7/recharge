@@ -20,7 +20,6 @@ export async function createPhone(req: Request, res: Response) {
     return res.status(500).send("Erro interno do servidor");
   }
 }
-
 export async function getPhonesByDocument(req: Request, res: Response) {
   try {
     const { document } = req.params;
