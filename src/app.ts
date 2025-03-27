@@ -1,14 +1,11 @@
 import express from "express";
 import cors from "cors";
-import phonesRouter from "../src/routers/phonesRouter";
-import summaryRouter from "../src/routers/summaryRouter";
-import rechargeRouter from "../src/routers/rechargesRouter";
+import router from "./routers/index";
+
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(summaryRouter);
-app.use(rechargeRouter);
-app.use("/phones", phonesRouter);
+app.use(router);
 
 export default app;

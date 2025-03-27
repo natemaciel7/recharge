@@ -8,11 +8,8 @@ import {
 
 const rechargesRouter = Router();
 
-rechargesRouter.post(
-  "/recharges",
-  validateSchema(rechargeSchema),
-  createRecharge
-);
-rechargesRouter.get("/recharges/:number", getRechargesByNumber);
+rechargesRouter.post("/", validateSchema(rechargeSchema), createRecharge);
+
+rechargesRouter.get("/:number", getRechargesByNumber);
 
 export default rechargesRouter;

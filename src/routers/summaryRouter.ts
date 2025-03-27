@@ -3,6 +3,6 @@ import { getSummary } from "../controllers/summaryController";
 
 const summaryRouter = Router();
 
-summaryRouter.get("/summary/:document", getSummary);
+summaryRouter.get("/:document", getSummary);
 
 export default summaryRouter;
